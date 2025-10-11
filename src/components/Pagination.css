@@ -1,0 +1,19 @@
+/* src/components/Pagination.css */
+.pagination {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.pagination button {
+  background-color: black;
+  color: orange;
+  border: 1px solid orange;
+  padding: 8px 12px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background-color: orange;
+  color: black;
+}
