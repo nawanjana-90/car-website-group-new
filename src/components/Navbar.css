@@ -1,0 +1,131 @@
+/* src/components/Navbar.css */
+
+/* Main Navbar */
+.navbar-section {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Navbar with background image */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  color: white;
+  border-bottom: 2px solid orange;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.navbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75); /* dark overlay */
+  opacity: 0.25; /* reduces image brightness to 25% */
+  z-index: 0;
+}
+
+.navbar * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Left Side */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-logo {
+  height: 50px;
+  width: auto;
+}
+
+.navbar-title {
+  font-size: 26px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Nav Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-item {
+  font-weight: bold;
+  cursor: pointer;
+  padding: 8px 16px;
+  color: white;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-item.active {
+  background-color: gold;
+  color: black;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+}
+
+/* Login Button */
+.login-btn {
+  background-color: orange;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0.8;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  opacity: 1;
+  box-shadow: 0 0 10px orange;
+}
+
+/* Slideshow Section */
+.slideshow {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1s ease;
+}
+
+/* Dots below slideshow */
+.dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: gray;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.active-dot {
+  background-color: orange;
+  box-shadow: 0 0 10px orange;
+}
