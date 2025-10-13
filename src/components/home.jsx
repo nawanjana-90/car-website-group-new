@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './header';
+// import Header from './header';
 import Mission from './mission';
 import NewsSlider from './newsSlider';
 import Footer from './Footer';
