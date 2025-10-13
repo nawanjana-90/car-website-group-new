@@ -3,13 +3,12 @@ import Header from './header';
 import Mission from './mission';
 import NewsSlider from './newsSlider';
 import Footer from './Footer';
-import Navbar from './Navbar';
 
-function Home(){
+function Home() {
   return (
     <div className="home-container" style={{ textAlign: 'center', minHeight: '100vh', backgroundColor: 'black', color: 'white', padding: '50px' }}>
       
-      {/* <Navbar /> */}
+      <Header />
 
       <h1 style={{ color: 'orange', marginTop: '50px' }}>Welcome to My Website</h1>
       <p style={{ color: 'white', marginTop: '20px' }}>
@@ -34,6 +33,6 @@ function Home(){
       <Footer />
     </div>
   );
-}
+};
 
 export default Home;

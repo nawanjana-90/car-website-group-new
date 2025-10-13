@@ -1,30 +1,28 @@
 // src/App.jsx
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
 import Navbar from "./components/Navbar";
-import Home from "./components/home";
-import About from "./components/about";
-import Footer from "./components/Footer";
-import "./App.css";
 import CarGrid from "./components/CarGrid";
+import Pagination from "./components/pagination";
+import Footer from "./components/Footer";
+import cars from "./data/cars";
+import "./App.css";
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Navbar />
+    <div className="App">
+      <Navbar />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/cars" element={<CarGrid />} />
-          {/* <Route path="/career" element={<Career />} /> */}
-          {/* <Route path="/contact" element={<Contact />} /> */}
-        </Routes>
+      {/* Car grid */}
+      <CarGrid cars={currentCars} />
 
-        <Footer />
-      </div>
-    </Router>
+      <Pagination
+        totalPages={totalPages}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
+
+      <Footer />
+    </div>
   );
 }
 
