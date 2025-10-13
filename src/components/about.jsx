@@ -1,5 +1,6 @@
 import React from "react";
-
+import Navbar from "./Navbar.jsx";
+import Footer from "./Footer.jsx";
 const About = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-8">

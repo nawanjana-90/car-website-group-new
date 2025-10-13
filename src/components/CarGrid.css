@@ -31,9 +31,13 @@
   height: 220px;
   object-fit: cover;
   opacity: 0.9;
+  cursor: pointer; /* shows it's clickable */
+  transition: opacity 0.3s ease;
 }
 
-/* Overlay text removed */
+.car-image:hover {
+  opacity: 1; /* subtle hover highlight */
+}
 
 /* Bottom info bar */
 .car-info {

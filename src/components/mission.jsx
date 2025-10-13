@@ -2,7 +2,7 @@ import React from 'react';
 import missionImage from '../assets/mission.jpg';
 import '../App.css';
 
-const App = () => (
+const Mission = () => (
   <div className="app-container">
     <section className="vision-mission">
       <div className="vision">
