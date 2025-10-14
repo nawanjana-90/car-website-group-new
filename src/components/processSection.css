@@ -1,0 +1,192 @@
+.process-section {
+    background-color: #fff;
+}
+
+.process-steps {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.step {
+    flex: 1;
+    max-width: 220px;
+    padding: 15px;
+}
+
+.step-icon {
+
+    /* You should replace this with actual images/SVGs */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FF4500;
+    font-size: 0.9em;
+    border-radius: 5px;
+}
+
+.step h3 {
+    color: #FF4500;
+    margin-bottom: 10px;
+}
+
+.step p {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.arrow {
+    font-size: 4em;
+    color: #FF4500;
+    align-self: center;
+    margin: 0 10px;
+    /* Hide the arrow on smaller screens */
+    display: none; 
+}
+
+/* Ensure arrows are visible on wider screens */
+@media (min-width: 900px) {
+    .process-steps {
+        gap: 0;
+    }
+    .arrow {
+        display: block;
+    }
+}
+
+.btn-orange {
+    background-color: #FF4500;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 40px;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.btn-orange:hover {
+    background-color: #E03E00; /* Slightly darker orange on hover */
+}
+
+
+/* -------------------- BOOKING SECTION -------------------- */
+.booking-section {
+    background-color: #F5F5F5; /* Light background for contrast */
+}
+
+.booking-header {
+    margin-bottom: 30px;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #1a1a1a; /* Dark background for the form area (Black/Dark Gray) */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Input and Select Fields Styling */
+input[type="text"],
+input[type="tel"],
+select {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    border: none;
+    background-color: #444; /* Gray background for fields */
+    color: #fff;
+    font-size: 1.1em;
+    border-radius: 3px;
+    appearance: none; /* Remove default select styles */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+}
+
+/* Placeholder color change for better visibility */
+::placeholder {
+    color: #bbb;
+    opacity: 1; /* For Firefox */
+}
+:-ms-input-placeholder {
+    color: #bbb;
+}
+::-ms-input-placeholder {
+    color: #bbb;
+}
+
+/* Select dropdown specific styling */
+select {
+    /* Add a custom arrow for select fields */
+    background-image: linear-gradient(45deg, transparent 50%, #FF4500 50%),
+                      linear-gradient(135deg, #FF4500 50%, transparent 50%);
+    background-position: calc(100% - 20px) calc(1em + 2px),
+                         calc(100% - 15px) calc(1em + 2px);
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+    padding-right: 30px; /* Make space for the custom arrow */
+}
+
+select option {
+    background-color: #444; /* Ensure options are dark as well */
+    color: #fff;
+}
+
+/* Submit Button Styling */
+.btn-submit {
+    width: 100%;
+    background-color: #FF4500; /* Main Orange Color */
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1.3em;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 3px;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: #E03E00;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .title-main {
+        font-size: 2em;
+    }
+    
+    .process-steps {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .step {
+        max-width: 90%;
+    }
+    
+    .arrow {
+        transform: rotate(90deg);
+        margin: 10px 0;
+        display: none; /* Hide for mobile to simplify vertical stack */
+    }
+    
+    .form-container {
+        padding: 20px;
+    }
+}
