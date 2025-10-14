@@ -1,6 +1,9 @@
-// src/ProcessSection.jsx
 import React from 'react';
 import "./processSection.css"
+import a from "../assets/a.jpg";
+import b from "../assets/b.jpg";
+import c from "../assets/c.jpg";
+import d from "../assets/d.jpg";    
 
 const ProcessSection = ({ bookingRef }) => {
     // Function to handle the smooth scroll
@@ -22,7 +25,7 @@ const ProcessSection = ({ bookingRef }) => {
                 <div className="step">
                     <div className="step-icon"></div>
                     {/* Assuming you have a.png in your public folder */}
-                    <img src="a.png" alt="Booking" className="section-img" /> 
+                    <img src="a.jpg" alt="Booking" className="section-img" /> 
                     <h3>Booking</h3>
                     <p>Book your vehicle service with us to give the best treatment for your vehicle.</p>
                 </div>
@@ -32,7 +35,7 @@ const ProcessSection = ({ bookingRef }) => {
                 {/* Step 2: Inspection */}
                 <div className="step">
                     <div className="step-icon"></div>
-                    <img src="b.png" alt="Inspection" className="section-img" />
+                    <img src="b.jpg" alt="Inspection" className="section-img" />
                     <h3>Inspection</h3>
                     <p>Our process starts with this stage where our team will inspect the cause behind the fault.</p>
                 </div>
@@ -42,7 +45,7 @@ const ProcessSection = ({ bookingRef }) => {
                 {/* Step 3: Execution */}
                 <div className="step">
                     <div className="step-icon"></div>
-                    <img src="c.png" alt="Execution" className="section-img" />
+                    <img src="c.jpg" alt="Execution" className="section-img" />
                     <h3>Execution</h3>
                     <p>Our team is specialized in finding the perfect solution for your vehicle problems.</p>
                 </div>
@@ -52,19 +55,12 @@ const ProcessSection = ({ bookingRef }) => {
                 {/* Step 4: Completion */}
                 <div className="step">
                     <div className="step-icon"></div>
-                    <img src="d.png" alt="Completion" className="section-img" />
+                    <img src="d.jpg" alt="Completion" className="section-img" />
                     <h3>Completion</h3>
                     <p>We deliver your vehicle to your hands only after ensuring that it is ready for your ride.</p>
                 </div>
             </div>
             
-            <button 
-                id="bookNowButton" 
-                className="btn-orange" 
-                onClick={handleScrollToBooking} // Added onClick handler
-            >
-                Book Your Services
-            </button>
         </section>
     );
 };

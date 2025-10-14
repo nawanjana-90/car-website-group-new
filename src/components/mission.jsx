@@ -1,5 +1,5 @@
 import React from "react";
-import "./About.css";
+import "./about.css"; // Correct import
 import missionImg from "../assets/mission.jpg";
 
 const Mission = () => {

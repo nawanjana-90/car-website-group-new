@@ -1,5 +1,5 @@
 import React from "react";
-import "./About.css";
+import "./about.css";
 import visionImg from "../assets/vision.jpg";
 
 const Vision = () => {

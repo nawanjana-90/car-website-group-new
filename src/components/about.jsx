@@ -1,7 +1,7 @@
 import React from "react";
-import "./About.css";
-import Mission from "./mission";
-import Vision from "./vission";
+import "./about.css";        
+import Mission from "./Mission";  
+import Vision from "./Vision"; 
 
 const About = () => {
   return (
@@ -43,4 +43,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default About;
