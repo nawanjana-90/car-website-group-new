@@ -1,26 +1,24 @@
-import React from 'react';
-import missionImage from '../assets/mission.jpg';
-import '../App.css';
+import React from "react";
+import "./About.css";
+import missionImg from "../assets/mission.jpg";
 
-const Mission = () => (
-  <div className="app-container">
-    <section className="vision-mission">
-      <div className="vision">
-        <h2>OUR VISION</h2>
+const Mission = () => {
+  return (
+    <div className="mission-container">
+      <div className="mission-image">
+        <img src={missionImg} alt="Mission" />
+      </div>
+      <div className="mission-text">
+        <h2>Our Mission</h2>
         <p>
-          To be the Number One Preferred Supplier for High Quality Motor Vehicles 
-          and related services with Profitable Growth through Superior Customer Service, 
-          Innovation, Quality and Commitment.
+          At <span>AutoDrive Motors</span>, our mission is to provide exceptional
+          vehicles and services with integrity and dedication. We strive to
+          exceed customer expectations and ensure a seamless car-buying
+          experience for everyone.
         </p>
       </div>
-      <div className="mission">
-        <h2>OUR MISSION</h2>
-        <p>
-          To Provide our Customers Great Quality Vehicles at Best Possible Prices 
-          with Exceptional Service.
-        </p>
-      </div>
-    </section>
-  </div>
-);
+    </div>
+  );
+};
+
 export default Mission;
