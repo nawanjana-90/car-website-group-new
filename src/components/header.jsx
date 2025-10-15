@@ -2,7 +2,7 @@ import React from 'react';
 
 function Header() {
   return (
-    <header style={{backgroundColor:'#000', padding:'20px'}}>
+    <header style={{backgroundColor:'#ffffffff', padding:'20px'}}>
       <nav style={{display:'flex', justifyContent:'space-between'}}>
         <h1 style={{color:'orange'}}>Car Service</h1>
         <div>

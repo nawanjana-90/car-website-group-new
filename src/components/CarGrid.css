@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
+  background-color:linear-gradient(90deg, #8a2be2, #ba55d3);
   padding: 40px 0;
 }
 
@@ -15,15 +15,19 @@
 
 .car-box {
   position: relative;
-  background-color: #111;
+  /* Changed to a subtle gradient for the card box itself */
+  background: linear-gradient(145deg, #000000, #000000);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  /* Adjusted shadow for a lighter card on a white background */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
 
 .car-box:hover {
   transform: scale(1.05);
+  /* Added a slightly stronger shadow on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .car-image {
@@ -31,32 +35,42 @@
   height: 220px;
   object-fit: cover;
   opacity: 0.9;
-  cursor: pointer; /* shows it's clickable */
+  cursor: pointer;
   transition: opacity 0.3s ease;
 }
 
 .car-image:hover {
-  opacity: 1; /* subtle hover highlight */
+  opacity: 1;
 }
 
-/* Bottom info bar */
+/* Bottom info bar - Stylish gradient background */
 .car-info {
-  background: rgba(0, 0, 0, 0.85);
-  color: rgb(244, 188, 188);
+  /* Changed to a stylish, vibrant gradient */
+  background: linear-gradient(
+    45deg,
+    #061960,
+    #9307eb
+  ); /* Purple, Pink, Cyan gradient */
+  /* Text color changed to white for contrast on the dark/vibrant gradient */
+  color: #ffffff;
   padding: 12px;
   text-align: center;
   font-family: "Poppins", sans-serif;
+  /* Kept a subtle border that matches the gradient's feel */
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .car-brand {
   font-size: 1.1rem;
-  color: #f9b208; /* golden accent */
+  /* Changed to white/light color for visibility */
+  color: #ffffff;
   font-weight: bold;
   margin: 0;
 }
 
 .car-price {
   font-size: 1rem;
-  color: #343232;
+  /* Changed to a light, contrasting color (e.g., light yellow) */
+  color: #f1efef;
   margin: 5px 0 0 0;
 }

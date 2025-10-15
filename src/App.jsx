@@ -8,8 +8,9 @@ import CarGrid from "./components/CarGrid";
 import Service from "./components/services"; // Correct import
 import Footer from "./components/Footer";
 import "./App.css";
-// import Career from "./components/Career";
-// import Contact from "./components/Contact";
+import Career from "./components/careers";
+import Contact from "./components/contact";
+
 
 function App() {
   return (
@@ -22,8 +23,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/cars" element={<CarGrid />} />
           <Route path="/services" element={<Service />} />
-          {/* <Route path="/career" element={<Career />} /> */}
-          {/* <Route path="/contact" element={<Contact />} /> */}
+           <Route path="/career" element={<Career />} /> 
+          <Route path="/contact" element={<Contact />} /> 
         </Routes>
 
         <Footer />

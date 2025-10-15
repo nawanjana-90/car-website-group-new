@@ -1,128 +1,158 @@
-/* Base styles */
 .about-page {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+  background:#1e0657;
 }
 
-.about-container,
-.mission-container,
-.vision-container {
+/* Hero Card Section */
+.hero-card-section {
+  background: #0d0520;
+  padding: 60px 20px;
+}
+.hero-card {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  position: relative;
   gap: 30px;
-  flex-wrap: wrap;
 }
-
-.about-content,
-.mission-text,
-.vision-text {
-  flex: 1;
-  min-width: 300px;
+.hero-card-content {
+  max-width: 600px;
 }
-
-.about-image,
-.mission-image,
-.vision-image {
-  flex: 1;
-  min-width: 200px;
+.hero-title {
+  font-size: 2.5rem;
+  margin: 10px 0;
 }
-
-.about-image img,
-.mission-image img,
-.vision-image img {
-  width: 80%;
-  border-radius: 10px;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Section-specific layout direction */
-.mission-container {
-  flex-direction: row;
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  margin: 50px 0;
-  flex-wrap: wrap;
-  background-color: #f9f9f9;
-  padding: 40px 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.vision-container {
-  flex-direction: row-reverse;
-}
-
-/* Mission text */
-.mission-text {
-  flex: 1;
-  min-width: 300px;
-}
-
-.mission-text h2 {
-  font-size: 2rem;
-  color: #222;
+.hero-subtitle {
+  font-size: 1.2rem;
   margin-bottom: 20px;
 }
-
-.mission-text p {
-  font-size: 1.1rem;
-  line-height: 1.7;
+.hero-stats {
+  display: flex;
+  gap: 30px;
+  margin-top: 20px;
+}
+.hero-stat .stat-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.hero-stat .stat-label {
+  font-size: 0.9rem;
   color: #555;
 }
-
-.mission-text span {
-  color: #007bff;
-  font-weight: 600;
+.hero-card-visual {
+  position: relative;
+}
+.hero-car-image {
+  width: 400px;
+  border-radius: 10px;
 }
 
-.mission-image {
-  flex: 1;
-  min-width: 250px;
+/* Story Section */
+.story-section {
+  padding: 60px 20px;
+  background: linear-gradient(90deg, #220860, #ba55d3);
+}
+.story-grid {
   display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+}
+.story-content {
+  flex: 1;
+  min-width: 300px;
+}
+.story-image img {
+  width: 500px;
+  border-radius: 10px;
+}
+
+/* Values Section */
+.values-section {
+  background:linear-gradient(90deg, #6624ff, #ba55d3); 
+  padding: 60px 20px;
+}
+.values-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
   justify-content: center;
 }
+.value-card {
+  background: linear-gradient(90deg, #6624ff, #052e4f);
+  padding: 20px;
+  border-radius: 10px;
+  flex: 1 1 200px;
+  text-align: center;
+}
+.value-icon {
+  font-size: 2rem;
+}
 
-.mission-image img {
-  width: 90%;
-  max-width: 400px;
-  border-radius: 15px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+/* Team Section */
+.team-section {
+  padding: 60px 20px;
+  background: linear-gradient(90deg, #0d2635, #ba55d3);
+}
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.team-card {
+  background: linear-gradient(90deg, #78c9fb, #6381ec);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 300px;
+}
+.team-image img {
+  width: 100%;
+  height: 200px;
   object-fit: cover;
 }
-
-h1,
-h2 {
-  color: #333;
+.team-info {
+  padding: 15px;
 }
 
-span {
-  color: #007bff;
+/* Mission & Vision Section */
+.mission-vision-section {
+  background: linear-gradient(#ba55d3, #06264a); 
+  padding: 60px 20px;
+}
+.mission-vision-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.mission-card, .vision-card {
+  background:linear-gradient(90deg, #8a2be2, #021d3b); 
+  padding: 20px;
+  border-radius: 10px;
+  flex: 1 1 300px;
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-  .about-container,
-  .mission-container,
-  .vision-container {
-    flex-direction: column;
-  }
-
-  .about-image img,
-  .mission-image img,
-  .vision-image img {
-    width: 100%;
-  }
-
-  .mission-container {
-    flex-direction: column-reverse;
-    text-align: center;
-  }
-
-  .mission-image img {
-    width: 80%;
-  }
+/* CTA Section */
+.cta-section {
+  background: #222;
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+.cta-button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  margin: 10px;
+  cursor: pointer;
+}
+.cta-button.primary {
+  background: #ff4500;
+  color: #fff;
+}
+.cta-button.secondary {
+  background: #fff;
+  color: #222;
 }

@@ -1,346 +1,1062 @@
+/* =======================================================
+   GENERAL STYLES & FONT SETUP
+   ======================================================= */
 html {
-    scroll-behavior: smooth; 
-}
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
-    color: #333;
-    overflow-x: hidden; 
+    scroll-behavior: smooth;
 }
 
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif; /* Prefer Inter for modern look */
+    /* Updated body background to be consistently dark */
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a3b 100%);
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* =======================================================
+   NAVBAR STYLES
+   ======================================================= */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Dark Purple Gradient */
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a3b 50%, #2a2a5c 100%);
+    color: #ffffff;
+    padding: 16px 30px;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    border-bottom: 1px solid rgba(138, 43, 226, 0.2);
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.navbar-logo {
+    width: 60px;
+    height: auto;
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.navbar-logo:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2) hue-rotate(270deg); /* Adds a purple tint on hover */
+}
+
+.navbar-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #8a2be2; /* Vibrant purple for premium accent */
+    text-transform: uppercase;
+    text-shadow: 0 0 8px rgba(138, 43, 226, 0.5);
+}
+
+/* === Nav Links === */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+    transition: all 0.5s ease-in-out;
+}
+
+.nav-item a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 10px 18px;
+    border-radius: 12px;
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-item a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 50%;
+    background: linear-gradient(90deg, #8a2be2, #ba55d3);
+    transition: all 0.5s ease;
+    transform: translateX(-50%);
+}
+
+/* Hover effect */
+.nav-item a:hover {
+    background: rgba(138, 43, 226, 0.2);
+    color: #ffffff;
+}
+
+.nav-item a:hover::after {
+    width: 90%;
+}
+
+/* Active link color */
+.nav-item.active a {
+    background: linear-gradient(45deg, #8a2be2, #ba55d3);
+    color: #0a0a0a;
+    font-weight: 700;
+    box-shadow: 0 3px 12px rgba(138, 43, 226, 0.6);
+}
+
+.nav-item.active a::after {
+    width: 0;
+}
+
+/* === Menu Icon (mobile) === */
+.menu-icon {
+    display: none;
+    font-size: 2.2rem;
+    cursor: pointer;
+    color: #8a2be2;
+    transition: color 0.5s ease, transform 0.5s ease;
+}
+
+.menu-icon:hover {
+    color: #ba55d3;
+    transform: scale(1.15);
+}
+
+/* === Responsive Styling for Navbar === */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a3b 50%, #2a2a5c 100%);
+        text-align: center;
+        padding: 25px 0;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .navbar-title {
+        font-size: 1.5rem;
+    }
+
+    .navbar-logo {
+        width: 45px;
+    }
+
+    .nav-item a {
+        font-size: 1.2rem;
+        padding: 16px 0;
+        border-radius: 0;
+    }
+
+    .nav-item a:hover {
+        background: rgba(138, 43, 226, 0.3);
+    }
+
+    .nav-item.active a {
+        background: linear-gradient(45deg, #8a2be2, #ba55d3);
+        color: #0a0a0a;
+    }
+
+    .nav-item a::after {
+        display: none;
+    }
+}
+
+
+/* =======================================================
+   HOME PAGE STYLES (Hero, Cars, Services)
+   ======================================================= */
+
+/* === HERO SECTION === */
 .hero-section {
-    background: url('./assets/car.jpg') no-repeat center center;
+    /* Using placeholder image URL */
+    background: url("https://placehold.co/1920x1080/1a1a3b/ffffff?text=Futuristic+Car+Dealership") no-repeat center center;
     background-size: cover;
-    background-color: #000;
-    
-    color: #fff;
+    color: #ffffff;
     min-height: 100vh;
     position: relative;
-    
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding-top: 0;
-    width: 100vw; 
+    width: 100vw;
 }
 
 .hero-section::before {
-    content: '';
+    content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6);
+    inset: 0;
+    /* Dark gradient overlay */
+    background: linear-gradient(
+        135deg,
+        rgba(10, 10, 10, 0.8),
+        rgba(42, 42, 92, 0.8)
+    );
     z-index: 1;
 }
 
 .hero-content {
     position: relative;
-    z-index: 2; 
+    z-index: 2;
     padding: 0 50px;
-    max-width: 1200px; 
+    max-width: 1200px;
     width: 100%;
-    box-sizing: border-box; 
-}
-
-.hero-content {
-    flex-grow: 1;
     display: flex;
-    flex-direction: row; 
-    align-items: center; 
+    flex-direction: row;
+    align-items: center;
     justify-content: flex-start;
-    text-align: left; 
-    height: 100%; 
-    padding-bottom: 0; 
+    text-align: left;
 }
 
 .hero-text-container {
     max-width: 800px;
-    padding-bottom: 10vh; 
     width: 100%;
 }
 
 .hero-text-container h1 {
     font-size: 64px;
-    font-weight: bold;
+    font-weight: 800;
     margin-bottom: 15px;
     line-height: 1.1;
+    color: #ffffff;
+    text-shadow: 0 0 12px rgba(138, 43, 226, 0.8);
 }
 
 .hero-text-container h2 {
     font-size: 32px;
-    font-weight: normal;
-    color: #ff8c00;
-    margin-bottom: 30px;
+    font-weight: 500;
+    color: #ba55d3; /* Lighter purple accent */
+    margin-bottom: 25px;
 }
 
 .description-text {
-    font-size: 16px; 
-    line-height: 1.6;
-    color: #aaa;
+    font-size: 17px;
+    line-height: 1.7;
+    color: #c9d1d9;
     margin-bottom: 40px;
     max-width: 85%;
 }
 
-.hero-buttons a { 
-    text-decoration: none;
-    margin-right: 20px;
-    display: inline-block;
-}
-
-.hero-buttons button {
-    padding: 12px 30px;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    font-weight: bold;
-    border: none;
-    transition: opacity 0.2s;
-}
-
 .btn-explore {
-    background-color: #ff8c00;
-    color: #000;
+    background: linear-gradient(45deg, #8a2be2, #ba55d3);
+    color: #0a0a0a;
+    padding: 14px 30px; /* Adjusted padding */
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.5s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-explore:hover {
+    background: linear-gradient(45deg, #ba55d3, #8a2be2);
+    box-shadow: 0 5px 20px rgba(138, 43, 226, 0.8);
+    transform: translateY(-2px);
 }
 
 .btn-see-cars {
-    background-color: transparent;
-    color: #fff;
-    border: 1px solid #fff;
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #8a2be2;
+    padding: 14px 30px; /* Adjusted padding */
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 15px;
+    transition: all 0.5s ease;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .btn-see-cars:hover {
-    background-color: #fff;
-    color: #000;
+    background: #8a2be2;
+    color: #0a0a0a;
+    box-shadow: 0 5px 20px rgba(138, 43, 226, 0.6);
 }
 
-.hero-image-container {
-    display: none; 
-}
-
-
+/* === CARS SECTION === */
 .cars-section {
-    padding: 60px 5%;
-    background-color: #f8f8f8; 
+    padding: 80px 5%;
+    /* Keep the gradient to transition smoothly from the hero */
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a3b 100%);
     text-align: center;
 }
 
 .section-title {
-    font-size: 32px;
-    color: #333;
-    margin-bottom: 10px;
+    font-size: 38px;
+    color: #ffffff;
     font-weight: 700;
-    border-bottom: 3px solid #ff8c00;
+    border-bottom: 3px solid #8a2be2;
     display: inline-block;
-    padding-bottom: 5px;
+    padding-bottom: 8px;
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.6);
+    margin-bottom: 10px;
 }
 
 .section-subtitle {
     font-size: 18px;
-    color: #666;
-    margin-bottom: 40px;
+    color: #c9d1d9;
+    margin-top: 8px;
+    margin-bottom: 60px;
 }
 
+/* === CAR CARDS - Added Gradient Background === */
 .car-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    gap: 35px;
     max-width: 1200px;
-    margin: 0 auto 40px auto;
+    margin: 0 auto;
 }
 
 .car-card {
-    background-color: #fff;
-    border-radius: 10px;
+    /* Changed solid color to subtle, darker gradient */
+    background: linear-gradient(145deg, #1a1a3b 0%, #0a0a0a 100%);
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    text-align: left;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    border: 1px solid rgba(138, 43, 226, 0.2); /* Soft border for definition */
 }
 
 .car-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    /* Enhanced hover glow */
+    box-shadow: 0 12px 30px rgba(138, 43, 226, 0.8); 
 }
 
 .car-image {
     width: 100%;
-    height: 200px;
+    height: 220px;
     object-fit: cover;
+    /* Placeholder for consistency with dark theme */
+    background-color: #0a0a0a;
 }
 
 .car-info {
     padding: 20px;
+    text-align: left;
 }
 
 .car-info h3 {
-    font-size: 20px;
-    margin-bottom: 5px;
-    color: #333;
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: #ffffff;
 }
 
 .car-price {
-    font-size: 22px;
-    font-weight: bold;
-    color: #ff8c00; 
+    font-size: 26px;
+    font-weight: 700;
+    color: #8a2be2;
     margin-bottom: 15px;
 }
 
 .car-details {
     display: flex;
     justify-content: space-between;
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 15px;
+    font-size: 15px;
+    color: #c9d1d9;
+    margin-bottom: 20px;
 }
 
 .car-details span i {
-    margin-right: 5px;
-    color: #ff8c00;
+    margin-right: 6px;
+    color: #ba55d3;
 }
 
 .btn-view-details {
     width: 100%;
-    padding: 10px;
+    padding: 14px;
     border: none;
-    border-radius: 5px;
-    background-color: #333;
-    color: white;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #8a2be2, #ba55d3);
+    color: #0a0a0a;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-weight: 600;
+    transition: background 0.5s ease, box-shadow 0.5s ease;
 }
 
 .btn-view-details:hover {
-    background-color: #ff8c00;
+    background: linear-gradient(45deg, #ba55d3, #8a2be2);
+    box-shadow: 0 3px 15px rgba(138, 43, 226, 0.8);
 }
 
 .btn-all-cars {
-    padding: 12px 25px;
-    border: 2px solid #ff8c00;
-    border-radius: 5px;
-    background-color: #ff8c00;
-    color: white;
-    font-size: 16px;
+    padding: 14px 30px;
+    border: 2px solid #8a2be2;
+    border-radius: 8px;
+    /* Already a gradient, but enhanced contrast */
+    background: linear-gradient(45deg, #8a2be2, #ba55d3);
+    color: #0a0a0a;
+    font-size: 18px;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s;
-    margin-top: 20px;
+    transition: all 0.5s ease;
+    margin-top: 50px;
+    text-transform: uppercase;
 }
 
 .btn-all-cars:hover {
-    background-color: #e07b00;
-    border-color: #e07b00;
+    background: linear-gradient(45deg, #ba55d3, #8a2be2);
+    border-color: #ba55d3;
+    box-shadow: 0 5px 20px rgba(138, 43, 226, 0.8);
 }
 
+/* === SERVICES SECTION - Added Gradient Background === */
 .our-services-section {
-    padding: 80px 5%;
+    padding: 100px 5%;
     text-align: center;
-    background-color: white;
+    /* Added subtle vertical gradient for depth */
+    background: linear-gradient(180deg, #0a0a0a 0%, #1a1a3b 100%);
 }
 
 .service-card-container {
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 30px;
     flex-wrap: wrap;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .service-card {
-    background-color: #fcfcfc;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    padding: 30px 20px;
-    width: 280px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
-    transition: box-shadow 0.3s, transform 0.3s;
-    text-align: center;
+    /* Changed solid color to a subtle gradient for a 'lifted' look */
+    background: linear-gradient(135deg, #1a1a3b 0%, #0a0a0a 100%);
+    border: 1px solid rgba(138, 43, 226, 0.4);
+    border-radius: 12px;
+    padding: 40px 30px;
+    width: 300px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    transition: box-shadow 0.5s ease, transform 0.5s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
-
-.service-icon-wrapper {
-    margin-bottom: 20px;
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(138, 43, 226, 0.5);
 }
 
 .service-icon {
-    font-size: 3rem;
-    display: block;
-    line-height: 1;
+    font-size: 3.5rem;
+    color: #8a2be2;
+    margin-bottom: 20px;
+    transition: color 0.5s ease;
+}
+
+.service-icon:hover {
+    color: #ba55d3;
 }
 
 .service-title {
-    font-size: 1.4rem;
-    color: #0d0d0d;
-    margin-top: 0;
+    font-size: 1.6rem;
+    color: #ffffff;
     margin-bottom: 15px;
+    text-shadow: 0 0 5px rgba(138, 43, 226, 0.3);
 }
 
 .service-description {
-    font-size: 0.95rem;
-    color: #666;
-    line-height: 1.6;
+    font-size: 1rem;
+    color: #c9d1d9;
+    line-height: 1.7;
     margin-bottom: 20px;
 }
 
 .service-read-more {
     text-decoration: none;
-    color: #ff8c00;
+    color: #ba55d3;
     font-weight: bold;
-    display: inline-block;
-    transition: color 0.2s;
+    font-size: 1rem;
+    transition: color 0.5s ease;
 }
 
 .service-read-more:hover {
-    color: #d47600;
+    color: #8a2be2;
 }
 
-
+/* === HOME PAGE RESPONSIVE === */
 @media (max-width: 992px) {
-    .hero-section {
-        padding: 0 20px;
-        text-align: center;
-        padding-top: 50px;
-        width: auto;
-    }
-    
     .hero-content {
         flex-direction: column;
-        justify-content: center;
-    }
-    .hero-text-container {
-        max-width: 100%;
         text-align: center;
-        padding-bottom: 20vh;
+        padding: 80px 20px;
     }
+
     .hero-text-container h1 {
-        font-size: 40px;
+        font-size: 48px;
     }
+
     .hero-text-container h2 {
-        font-size: 24px;
+        font-size: 28px;
     }
+
     .description-text {
         max-width: 100%;
     }
 
-    .car-grid {
-        gap: 20px;
+    .btn-see-cars {
+        margin-left: 0;
+        margin-top: 15px;
     }
-    .car-card {
-        width: 90%;
-        max-width: 400px; 
+
+    .car-card,
+    .service-card {
+        width: 100%;
+        max-width: 450px;
         margin: 0 auto;
     }
+}
+
+@media (max-width: 600px) {
+    .hero-text-container h1 {
+        font-size: 36px;
+    }
+    .hero-text-container h2 {
+        font-size: 20px;
+    }
+    .section-title {
+        font-size: 30px;
+    }
+    .btn-explore, .btn-see-cars {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 15px;
+    }
+}
+
+/* =======================================================
+   CAREERS PAGE STYLES (Previously existing)
+   ======================================================= */
+.careers-page {
+    min-height: 100vh;
+}
+
+/* Hero Section - Changed to Dark Purple Gradient */
+.careers-hero {
+    background: linear-gradient(135deg, #1a1a3b 0%, #2a2a5c 100%); 
+    color: white;
+    padding: 100px 0 80px;
+    text-align: center;
+    box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.careers-hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.8); /* Purple Glow */
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    font-weight: 400;
+    color: #c9d1d9;
+}
+
+/* Life at Indra Section - Deep Dark Background */
+.life-at-indra {
+    background-color: #0a0a0a; 
+    padding: 80px 20px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+/* Reusing .section-title and .section-subtitle from above */
+
+.section-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #909090; 
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusted min width */
+    gap: 40px;
+    margin-top: 60px;
+}
+
+/* Feature Card - Dark/Glass Look */
+.feature-card {
+    /* Changed to a more pronounced gradient for feature cards */
+    background: linear-gradient(145deg, #1a1a3b 0%, #0a0a0a 100%);
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #8a2be2; /* Purple Border */
+    color: #ffffff;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(138, 43, 226, 0.5); /* Purple shadow on hover */
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: #ba55d3; /* Bright Purple Icon */
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff; /* White title */
+    margin-bottom: 1rem;
+    text-shadow: 0 0 5px rgba(186, 85, 211, 0.5);
+}
+
+.feature-card p {
+    color: #c9d1d9; /* Light gray text */
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+/* Apply Section - CRITICAL GRADIENT CHANGE: Changed to Dark Section */
+.apply-section {
+    /* Replaced light background with a deep, dark gradient for consistency */
+    background: linear-gradient(180deg, #0a0a0a 0%, #1a1a3b 100%);
+    padding: 80px 0;
+    color: #ffffff;
+}
+
+.apply-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.apply-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.apply-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #c9d1d9; /* Adjusted text color for dark background */
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Application Form - Now a 'Glass' element on a dark gradient background */
+.application-form {
+    /* Dark glass-effect gradient */
+    background: rgba(42, 42, 92, 0.2); 
+    backdrop-filter: blur(5px);
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(138, 43, 226, 0.4); /* Purple border */
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #ffffff; /* Adjusted label color for dark background */
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+/* Input Fields - Dark Theme Input Styling */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 14px 15px;
+    border: 2px solid #3a3a5a; /* Darker, subtle border */
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #0a0a0a; /* Deep dark background for inputs */
+    color: #ffffff; /* White text for inputs */
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #8a2be2; /* Purple focus border */
+    box-shadow: 0 0 0 4px rgba(138, 43, 226, 0.2); /* Purple glow */
+    background: #1a1a1a; /* Slightly lighter background on focus */
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+    font-family: inherit;
+}
+
+/* File Input Styling */
+.file-input-wrapper {
+    position: relative;
+    margin-top: 5px;
+}
+
+.file-input-wrapper input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.file-custom {
+    display: block;
+    padding: 12px 15px;
+    border: 2px solid #3a3a5a; /* Consistent with other inputs */
+    border-radius: 8px;
+    background: #0a0a0a; /* Consistent with other inputs */
+    color: #c9d1d9; /* Light text */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-input-wrapper:hover .file-custom {
+    border-color: #8a2be2; /* Purple hover border */
+    color: #8a2be2;
+}
+
+.file-hint {
+    display: block;
+    margin-top: 5px;
+    color: #909090;
+    font-size: 0.85rem;
+}
+
+/* Submit Button - Changed to Purple/Pink Gradient */
+.submit-btn {
+    width: 100%;
+    /* Bright Purple/Magenta Gradient for impact */
+    background: linear-gradient(135deg, #8a2be2 0%, #ba55d3 100%); 
+    color: white;
+    border: none;
+    padding: 18px 30px; 
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(138, 43, 226, 0.4); /* Purple glow on hover */
+    background: linear-gradient(135deg, #ba55d3 0%, #8a2be2 100%); 
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design (Careers Page) */
+@media (max-width: 768px) {
+    .careers-hero-content h1 {
+        font-size: 2.5rem;
+    }
     
-    .service-card {
-        width: 90%;
-        max-width: 400px;
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .application-form {
+        padding: 30px 20px;
+        margin: 0 15px;
+    }
+    
+    .careers-hero {
+        padding: 80px 0 60px;
+    }
+    
+    .life-at-indra,
+    .apply-section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .careers-hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .feature-card {
+        padding: 30px 20px;
+    }
+    
+    .application-form {
+        padding: 25px 15px;
+    }
+}
+
+/* =======================================================
+   CONTACT PAGE STYLES (Previously existing)
+   ======================================================= */
+
+/* General Page Styling */
+.contact-container {
+    font-family: "Inter", sans-serif; 
+    color: #ffffff; 
+    background-color: #0a0a0a; /* Deepest dark background */
+}
+
+/* Hero Section - Themed Gradient */
+.contact-hero {
+    background: linear-gradient(135deg, #1a1a3b 0%, #2a2a5c 100%); 
+    color: #ffffff;
+    text-align: center;
+    padding: 100px 20px 80px;
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.2);
+}
+
+.contact-hero h1 {
+    color: #8a2be2; /* Vibrant Purple */
+    font-size: 3.5rem; 
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.7);
+}
+
+.contact-hero p {
+    color: #c9d1d9; /* Lighter text color */
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+/* Contact Details and Form Layout */
+.contact-main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 50px;
+    padding: 80px 10%;
+    /* Subtle gradient for main section background */
+    background: linear-gradient(180deg, #11111a 0%, #0a0a0a 100%);
+}
+
+.contact-details h2 {
+    color: #ba55d3; /* Secondary purple accent */
+    font-size: 28px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.contact-details p {
+    color: #aaa;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.contact-details ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.contact-details li {
+    margin-bottom: 12px;
+    color: #ddd;
+    font-size: 1.05rem;
+}
+
+.social-links p {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.icons a {
+    margin-right: 20px;
+    font-size: 24px;
+    text-decoration: none;
+    color: #8a2be2; /* Primary purple color for icons */
+    transition: color 0.3s, transform 0.3s;
+}
+
+.icons a:hover {
+    color: #ba55d3; /* Lighter purple on hover */
+    transform: scale(1.1);
+}
+
+/* Contact Form */
+.contact-form h2 {
+    color: #8a2be2;
+    margin-bottom: 25px;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    /* Glass Effect on dark background - Enhanced transparency for gradient look */
+    background: rgba(42, 42, 92, 0.1); 
+    backdrop-filter: blur(8px); /* Increased blur */
+    border: 1px solid rgba(138, 43, 226, 0.6); /* Sharper purple border */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.8); /* Stronger shadow */
+}
+
+.contact-form input,
+.contact-form textarea {
+    border: 1px solid #3a3a5a;
+    background-color: #0a0a0a;
+    color: #fff; 
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #777;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #8a2be2; /* Primary purple focus border */
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+    background-color: #1a1a1a;
+    outline: none;
+}
+
+.contact-form button {
+    /* Purple/Magenta Gradient for impact */
+    background: linear-gradient(135deg, #8a2be2 0%, #ba55d3 100%); 
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.contact-form button:hover {
+    background: linear-gradient(135deg, #ba55d3 0%, #8a2be2 100%); 
+    box-shadow: 0 5px 20px rgba(138, 43, 226, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Branch Network */
+.branches {
+    /* Subtle gradient background for the branches section */
+    background: linear-gradient(90deg, #1a1a3b 0%, #0a0a0a 100%);
+    padding: 80px 10%;
+    text-align: center;
+    color: #fff;
+    border-top: 1px solid rgba(138, 43, 226, 0.2);
+}
+
+.branches h2 {
+    color: #8a2be2; /* Primary purple accent */
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-weight: 700;
+    text-shadow: 0 0 5px rgba(138, 43, 226, 0.5);
+}
+
+.branch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.branch-card {
+    /* Dark subtle gradient for card background */
+    background: linear-gradient(145deg, #000000 0%, #1a1a3b 100%);
+    color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #2a2a5c;
+}
+
+.branch-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(138, 43, 226, 0.3);
+}
+
+.branch-card h3 {
+    color: #ba55d3; /* Secondary purple accent */
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+/* Responsive adjustments for Contact Page */
+@media (max-width: 600px) {
+    .contact-hero h1 {
+        font-size: 2.5rem;
+    }
+    .contact-main {
+        padding: 40px 5%;
+    }
+    .contact-form form {
+        padding: 30px;
+    }
+    .branches {
+        padding: 40px 5%;
+    }
+    .branches h2 {
+        font-size: 2rem;
     }
 }

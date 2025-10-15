@@ -9,11 +9,6 @@ const Service = () => {
 
   return (
     <div className="service-page">
-      {/* Hero / Intro section */}
-      <section className="service-hero">
-        <h1>Our Services</h1>
-        <p>Quality vehicle care with integrity and speed.</p>
-      </section>
 
       {/* Process Section */}
       <ProcessSection bookingRef={bookingRef} />

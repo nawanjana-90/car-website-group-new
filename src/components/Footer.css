@@ -1,11 +1,12 @@
 .footer {
-  background-color: black;
-  color: white;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a3b 50%, #2a2a5c 100%); /* Matches Navbar gradient */
+  color: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   padding: 40px 60px;
-  border-top: 2px solid orange;
+  border-top: 2px solid #8a2be2; /* Matches Navbar purple */
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.6); /* Matches Navbar shadow */
 }
 
 .footer-left {
@@ -23,6 +24,12 @@
 .footer-logo {
   width: 80px;
   height: auto;
+  transition: transform 0.5s ease, filter 0.5s ease; /* Matches Navbar logo animation */
+}
+
+.footer-logo:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2) hue-rotate(270deg); /* Matches Navbar purple tint hover */
 }
 
 .social-section {
@@ -32,9 +39,10 @@
 }
 
 .follow-text {
-  color: orange;
+  color: #8a2be2; /* Matches Navbar purple */
   font-weight: bold;
   margin-bottom: 8px;
+  text-shadow: 0 0 5px rgba(138, 43, 226, 0.3); /* Matches Navbar shadow */
 }
 
 .social-icons {
@@ -44,23 +52,25 @@
 
 .icon {
   font-size: 22px;
-  color: white;
+  color: #ffffff;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease; /* Matches Navbar transition timing */
 }
 
 .icon:hover {
-  color: orange;
+  color: #ba55d3; /* Matches Navbar hover purple */
   transform: scale(1.2);
 }
 
 .contact-info p {
   margin: 3px 0;
+  color: #c9d1d9; /* Matches Navbar text color */
 }
 
 .footer-right h4 {
-  color: orange;
+  color: #8a2be2; /* Matches Navbar purple */
   margin-bottom: 10px;
+  text-shadow: 0 0 5px rgba(138, 43, 226, 0.3);
 }
 
 .footer-right ul {
@@ -73,11 +83,14 @@
 }
 
 .footer-right a {
-  color: white;
+  color: #ffffff;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: all 0.5s ease; /* Matches Navbar transition */
 }
 
 .footer-right a:hover {
-  color: orange;
+  color: #ba55d3; /* Matches Navbar hover purple */
+  background: rgba(138, 43, 226, 0.2); /* Matches Navbar hover background */
+  padding: 2px 5px;
+  border-radius: 5px;
 }

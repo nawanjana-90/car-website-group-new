@@ -1,7 +1,7 @@
 import React from "react";
 import "./ContactUs.css";
 
-const ContactUs = () => {
+const contact = () => {
   return (
     <div className="contact-container">
       {/* Hero Section */}
@@ -72,4 +72,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default contact;

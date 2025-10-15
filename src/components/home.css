@@ -1,330 +1,195 @@
-html {
-    scroll-behavior: smooth; 
-}
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
-    color: #333;
-    overflow-x: hidden; 
-}
+/* src/components/Home.css */
 
-.hero-section {
-    background: url('./assets/car.jpg') no-repeat center center;
-    background-size: cover;
-    background-color: #000;
-    
-    color: #fff;
-    min-height: 100vh;
-    position: relative;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 0;
-    width: 100vw; 
+.home-container {
+  text-align: center;
+  min-height: 100vh;
+  background:rgb(5, 18, 42);
+  color: #222;
+  padding: 50px;
 }
 
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 1;
+.home-container h1 {
+  background:rgb(8, 49, 119);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 50px;
 }
 
-.hero-content {
-    position: relative;
-    z-index: 2; 
-    padding: 0 50px;
-    max-width: 1200px; 
-    width: 100%;
-    box-sizing: border-box; 
+.home-container p {
+  color: #fff;
+  margin-top: 20px;
 }
 
-.hero-content {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: row; 
-    align-items: center; 
-    justify-content: flex-start;
-    text-align: left; 
-    height: 100%; 
-    padding-bottom: 0; 
+/* Featured Car Slider */
+.featured-slider {
+  position: relative;
+  width: 80%;
+  margin: 40px auto;
+  border-radius: 15px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #6a0dad, #09274a);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.hero-text-container {
-    max-width: 800px;
-    padding-bottom: 10vh; 
-    width: 100%;
+.featured-image,
+.featured-video {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 15px;
 }
 
-.hero-text-container h1 {
-    font-size: 64px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    line-height: 1.1;
+.view-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #6a0dad, #4a90e2);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
 }
 
-.hero-text-container h2 {
-    font-size: 32px;
-    font-weight: normal;
-    color: #ff8c00;
-    margin-bottom: 30px;
+.view-btn:hover {
+  background: linear-gradient(90deg, #4a90e2, #09274a);
 }
 
-.description-text {
-    font-size: 16px; 
-    line-height: 1.6;
-    color: #aaa;
-    margin-bottom: 40px;
-    max-width: 85%;
+/* Dots */
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
 
-.btn-explore {
-    background-color: #ff8c00;
-    color: #000;
+.dot {
+  height: 10px;
+  width: 10px;
+  background: linear-gradient(90deg, #6a0dad, #4a90e2);
+  border-radius: 50%;
+  margin: 0 5px;
+  display: inline-block;
+  transition: 0.3s;
 }
 
-.btn-see-cars {
-    background-color: transparent;
-    color: #fff;
-    border: 1px solid #fff;
+.dot.active {
+  background-color: #fff;
 }
 
-.btn-see-cars:hover {
-    background-color: #fff;
-    color: #000;
+/* Why Choose Section */
+.why-choose {
+  background: linear-gradient(135deg, #6a0dad 0%, #0d3665 100%);
+  padding: 60px 0;
 }
 
-.hero-image-container {
-    display: none; 
+.why-choose h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
 }
 
-
-.cars-section {
-    padding: 60px 5%;
-    background-color: #f8f8f8; 
-    text-align: center;
+.why-choose h2 span {
+  background: linear-gradient(90deg, #6a0dad, #022043);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.section-title {
-    font-size: 32px;
-    color: #333;
-    margin-bottom: 10px;
-    font-weight: 700;
-    border-bottom: 3px solid #ff8c00;
-    display: inline-block;
-    padding-bottom: 5px;
+.why-choose p {
+  color: #fff;
+  margin-bottom: 40px;
 }
 
-.section-subtitle {
-    font-size: 18px;
-    color: #666;
-    margin-bottom: 40px;
+.features {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 80%;
+  margin: auto;
 }
 
-.car-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto 40px auto;
+.feature-box {
+  background: linear-gradient(90deg, #6a0dad, #081525);
+  border-radius: 10px;
+  padding: 30px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s ease;
 }
 
-.car-card {
-    background-color: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    text-align: left;
+.feature-box:hover {
+  transform: scale(1.05);
 }
 
-.car-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+.feature-box h3 {
+  background: linear-gradient(90deg, #6a0dad, #041b36);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 15px;
 }
 
-.car-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+/* News Section */
+.news-section {
+  margin: 80px 0;
 }
 
-.car-info {
-    padding: 20px;
+.news-section h2 {
+  font-size: 2em;
+  margin-bottom: 30px;
 }
 
-.car-info h3 {
-    font-size: 20px;
-    margin-bottom: 5px;
-    color: #333;
+.news-section h2 span {
+  background: linear-gradient(90deg, #6a0dad, #052346);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.car-price {
-    font-size: 22px;
-    font-weight: bold;
-    color: #ff8c00; 
-    margin-bottom: 15px;
+.news-slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  width: 80%;
+  margin: auto;
 }
 
-.car-details {
-    display: flex;
-    justify-content: space-between;
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 15px;
+.news-track {
+  display: flex;
+  transition: transform 0.8s ease;
 }
 
-.car-details span i {
-    margin-right: 5px;
-    color: #ff8c00;
+.news-card {
+  min-width: 100%;
+  background: linear-gradient(90deg, #6a0dad, #08294f);
+  border-radius: 10px;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
 }
 
-.btn-view-details {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #333;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.news-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
 }
 
-.btn-view-details:hover {
-    background-color: #ff8c00;
+.news-card h3 {
+  background:#052448;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
 }
 
-.btn-all-cars {
-    padding: 12px 25px;
-    border: 2px solid #ff8c00;
-    border-radius: 5px;
-    background-color: #ff8c00;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s;
-    margin-top: 20px;
-}
-
-.btn-all-cars:hover {
-    background-color: #e07b00;
-    border-color: #e07b00;
-}
-
-.our-services-section {
-    padding: 80px 5%;
-    text-align: center;
-    background-color: white;
-}
-
-.service-card-container {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
-    margin-top: 40px;
-}
-
-.service-card {
-    background-color: #fcfcfc;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    padding: 30px 20px;
-    width: 280px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
-    transition: box-shadow 0.3s, transform 0.3s;
-    text-align: center;
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
-
-.service-icon-wrapper {
-    margin-bottom: 20px;
-}
-
-.service-icon {
-    font-size: 3rem;
-    display: block;
-    line-height: 1;
-}
-
-.service-title {
-    font-size: 1.4rem;
-    color: #0d0d0d;
-    margin-top: 0;
-    margin-bottom: 15px;
-}
-
-.service-description {
-    font-size: 0.95rem;
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.service-read-more {
-    text-decoration: none;
-    color: #ff8c00;
-    font-weight: bold;
-    display: inline-block;
-    transition: color 0.2s;
-}
-
-.service-read-more:hover {
-    color: #d47600;
-}
-
-
-@media (max-width: 992px) {
-    .hero-section {
-        padding: 0 20px;
-        text-align: center;
-        padding-top: 50px;
-        width: auto;
-    }
-    
-    .hero-content {
-        flex-direction: column;
-        justify-content: center;
-    }
-    .hero-text-container {
-        max-width: 100%;
-        text-align: center;
-        padding-bottom: 20vh;
-    }
-    .hero-text-container h1 {
-        font-size: 40px;
-    }
-    .hero-text-container h2 {
-        font-size: 24px;
-    }
-    .description-text {
-        max-width: 100%;
-    }
-
-    .car-grid {
-        gap: 20px;
-    }
-    .car-card {
-        width: 90%;
-        max-width: 400px; 
-        margin: 0 auto;
-    }
-    
-    .service-card {
-        width: 90%;
-        max-width: 400px;
-    }
+.news-card p {
+  color: #fff;
 }

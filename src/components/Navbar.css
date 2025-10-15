@@ -1,131 +1,152 @@
-/* src/components/Navbar.css */
-
-/* Main Navbar */
-.navbar-section {
-  width: 100%;
-  overflow: hidden;
-}
-
-/* Navbar with background image */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
-  color: white;
-  border-bottom: 2px solid orange;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a3b 50%, #2a2a5c 100%);
+  color: #ffffff;
+  padding: 16px 30px;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  border-bottom: 1px solid rgba(138, 43, 226, 0.2);
 }
 
-.navbar::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.75); /* dark overlay */
-  opacity: 0.25; /* reduces image brightness to 25% */
-  z-index: 0;
-}
-
-.navbar * {
-  position: relative;
-  z-index: 1;
-}
-
-/* Left Side */
 .navbar-left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
 }
 
 .navbar-logo {
-  height: 50px;
-  width: auto;
+  width: 60px;
+  height: auto;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2) hue-rotate(270deg); /* Adds a purple tint on hover */
 }
 
 .navbar-title {
-  font-size: 26px;
-  font-weight: bold;
-  color: white;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #8a2be2; /* Vibrant purple for premium accent */
+  text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(138, 43, 226, 0.5);
 }
 
-/* Nav Links */
+/* === Nav Links === */
 .nav-links {
-  list-style: none;
   display: flex;
-  gap: 30px;
+  list-style: none;
+  gap: 35px;
+  transition: all 0.5s ease-in-out;
 }
 
-.nav-item {
-  font-weight: bold;
-  cursor: pointer;
-  padding: 8px 16px;
-  color: white;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-.nav-item.active {
-  background-color: gold;
-  color: black;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
-}
-
-/* Login Button */
-.login-btn {
-  background-color: orange;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  opacity: 0.8;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.login-btn:hover {
-  opacity: 1;
-  box-shadow: 0 0 10px orange;
-}
-
-/* Slideshow Section */
-.slideshow {
+.nav-item a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 10px 18px;
+  border-radius: 12px;
+  transition: all 0.5s ease;
   position: relative;
-  width: 100%;
-  height: 400px;
   overflow: hidden;
 }
 
-.slide-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 1s ease;
-}
-
-/* Dots below slideshow */
-.dots {
+.nav-item a::after {
+  content: '';
   position: absolute;
-  bottom: 15px;
+  width: 0;
+  height: 3px;
+  bottom: 0;
   left: 50%;
+  background: linear-gradient(90deg, #8a2be2, #ba55d3);
+  transition: all 0.5s ease;
   transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
 }
 
-.dot {
-  width: 12px;
-  height: 12px;
-  background-color: gray;
-  border-radius: 50%;
-  transition: all 0.3s ease;
+/* Hover effect */
+.nav-item a:hover {
+  background: rgba(138, 43, 226, 0.2);
+  color: #ffffff;
 }
 
-.active-dot {
-  background-color: orange;
-  box-shadow: 0 0 10px orange;
+.nav-item a:hover::after {
+  width: 90%;
+}
+
+/* Active link color */
+.nav-item.active a {
+  background: linear-gradient(45deg, #8a2be2, #ba55d3);
+  color: #0a0a0a;
+  font-weight: 700;
+  box-shadow: 0 3px 12px rgba(138, 43, 226, 0.6);
+}
+
+.nav-item.active a::after {
+  width: 0;
+}
+
+/* === Menu Icon (mobile) === */
+.menu-icon {
+  display: none;
+  font-size: 2.2rem;
+  cursor: pointer;
+  color: #8a2be2;
+  transition: color 0.5s ease, transform 0.5s ease;
+}
+
+.menu-icon:hover {
+  color: #ba55d3;
+  transform: scale(1.15);
+}
+
+/* === Responsive Styling === */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a3b 50%, #2a2a5c 100%);
+    text-align: center;
+    padding: 25px 0;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .navbar-title {
+    font-size: 1.5rem;
+  }
+
+  .navbar-logo {
+    width: 45px;
+  }
+
+  .nav-item a {
+    font-size: 1.2rem;
+    padding: 16px 0;
+    border-radius: 0;
+  }
+
+  .nav-item a:hover {
+    background: rgba(138, 43, 226, 0.3);
+  }
+
+  .nav-item.active a {
+    background: linear-gradient(45deg, #8a2be2, #ba55d3);
+    color: #0a0a0a;
+  }
+
+  .nav-item a::after {
+    display: none;
+  }
 }
